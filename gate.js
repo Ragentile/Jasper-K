@@ -6,8 +6,8 @@ const status = document.getElementById('status');
 const reveal = form.querySelector('.reveal');
 const controls = [...document.querySelectorAll('[data-gate-lang]')];
 const copy = {
-  en: {title:'Jasper · Private preview',subtitle:'Learning to optimize GPU kernels.',heading:'Private preview',hint:'Enter the password to read the full article.',password:'Password',open:'Read article',foot:'Read-only preview · No account or installation needed',show:'Show',hide:'Hide',showLabel:'Show password',hideLabel:'Hide password',opening:'Opening article…',wrong:'Incorrect password. Please try again.',network:'Unable to open the article. Check your connection and try again.',unsupported:'Please open this HTTPS address in a current version of Safari, Chrome, or Edge.'},
-  zh: {title:'Jasper · 阅读预览',subtitle:'学习优化 GPU 算子。',heading:'阅读预览',hint:'输入访问密码，即可阅读完整文章。',password:'访问密码',open:'打开文章',foot:'只读预览 · 无需注册或安装软件',show:'显示',hide:'隐藏',showLabel:'显示密码',hideLabel:'隐藏密码',opening:'正在打开文章…',wrong:'密码不正确，请重新输入。',network:'暂时无法打开，请检查网络后重试。',unsupported:'请使用最新版 Safari、Chrome 或 Edge 打开此 HTTPS 网址。'}
+  en: {title:'Jasper-K · Private preview',subtitle:'Learning to optimize GPU kernels.',heading:'Private preview',hint:'Enter the password to read the full article.',password:'Password',open:'Read article',foot:'Read-only preview · No account or installation needed',show:'Show',hide:'Hide',showLabel:'Show password',hideLabel:'Hide password',opening:'Opening article…',wrong:'Incorrect password. Please try again.',network:'Unable to open the article. Check your connection and try again.',unsupported:'Please open this HTTPS address in a current version of Safari, Chrome, or Edge.'},
+  zh: {title:'Jasper-K · 阅读预览',subtitle:'学习优化 GPU 算子。',heading:'阅读预览',hint:'输入访问密码，即可阅读完整文章。',password:'访问密码',open:'打开文章',foot:'只读预览 · 无需注册或安装软件',show:'显示',hide:'隐藏',showLabel:'显示密码',hideLabel:'隐藏密码',opening:'正在打开文章…',wrong:'密码不正确，请重新输入。',network:'暂时无法打开，请检查网络后重试。',unsupported:'请使用最新版 Safari、Chrome 或 Edge 打开此 HTTPS 网址。'}
 };
 let language, statusKey = '', pending = false;
 const readLanguage = () => /^zh(?:-cn)?$/i.test(new URL(location.href).searchParams.get('lang') || '') ? 'zh' : 'en';

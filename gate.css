@@ -14,3 +14,5 @@ html[lang="zh-CN"] .prose pre{line-height:1.7;overflow-wrap:normal}
 @media(max-width:480px){.language-switch button{padding:8px 10px}.site-header .brand-logo{max-width:44vw}.site-header .header-inner{gap:12px}}
 
 .gate-topbar{display:flex;align-items:center;justify-content:space-between;gap:14px}.gate .language-switch button{padding:7px 10px;font-size:11px}.gate .language-switch{background:transparent}
+
+.gate h1{font-size:clamp(64px,20vw,112px)}
