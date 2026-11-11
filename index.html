@@ -1,122 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ragentile — Learning through experience</title>
-  <meta name="description" content="Ragentile develops models and tools that learn from execution feedback. Explore Jasper-K, our reinforcement learning approach to GPU kernel optimization.">
-  <meta name="theme-color" content="#f6f5ef">
-  <meta property="og:title" content="Ragentile — Learning through experience">
-  <meta property="og:description" content="Reinforcement learning for real engineering challenges. Discover Jasper-K, our models, and our open-source tools.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ragentile.github.io/">
-  <meta property="og:image" content="https://ragentile.github.io/assets/logo.png">
-  <link rel="canonical" href="https://ragentile.github.io/">
-  <link rel="icon" type="image/png" href="./assets/logo.png">
-  <style>
-    :root{--paper:#f6f5ef;--ink:#263225;--muted:#64705f;--line:#d8ddcf;--green:#355d3c;--soft:#e9eddf;--serif:Georgia,'Times New Roman','Songti SC',serif;--sans:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit;text-underline-offset:5px}button{font:inherit}button,a{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible{outline:3px solid #6a8954;outline-offset:6px}::selection{background:#dce8c9} .shell{width:min(1160px,calc(100% - 96px));margin:auto}.skip{position:absolute;top:-80px;left:20px;padding:12px;background:var(--paper);z-index:10}.skip:focus{top:12px}
-    .header{display:flex;align-items:center;justify-content:space-between;min-height:108px;border-bottom:1px solid var(--line);gap:28px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:650;letter-spacing:-.045em;font-size:27px}.brand img{width:43px;height:43px;object-fit:contain}.navigation{display:flex;align-items:center;gap:30px;font-size:13px}.navigation>a{text-decoration:none;color:var(--muted)}.navigation>a:hover{color:var(--green)}.languages{display:flex;gap:2px;border:1px solid var(--line);border-radius:4px;padding:3px}.languages button{border:0;background:transparent;color:var(--muted);padding:6px 9px;cursor:pointer;border-radius:2px;font-size:12px}.languages button[aria-pressed=true]{background:var(--green);color:white}
-    .hero{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(200px,.65fr);gap:80px;align-items:center;padding:100px 0 106px}.eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:10px}.eyebrow:before{content:'';display:block;width:7px;height:7px;border-radius:50%;background:var(--green)}h1{font:normal clamp(46px,5.3vw,73px)/1.08 var(--serif);letter-spacing:-.055em;margin:25px 0 28px;max-width:800px}h1 span{display:block}.hero-copy{font-size:18px;line-height:1.8;max-width:590px;color:var(--muted);margin:0}.hero-visual{position:relative;display:grid;place-items:center;aspect-ratio:1}.hero-visual:before{content:'';position:absolute;inset:2%;border:1px solid var(--line);border-radius:50%}.hero-visual:after{content:'';position:absolute;inset:14%;border:1px solid var(--line);border-radius:50%;opacity:.7}.hero-visual img{display:block;position:relative;width:82%;height:auto;z-index:1}.hero-caption{margin-top:14px;display:flex;justify-content:center;gap:7px;color:var(--muted);font:11px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.04em}.hero-aside{align-self:center}.primary-link{display:inline-flex;align-items:center;gap:30px;background:var(--green);color:white;text-decoration:none;padding:16px 22px;margin-top:30px;font-size:14px;border-radius:3px;transition:background .15s}.primary-link:hover{background:#294d30}.arrow{font-size:20px;line-height:1;transition:transform .2s}a:hover .arrow{transform:translateX(3px)}
-    .section-heading{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding-top:36px;border-top:1px solid var(--line);margin-bottom:28px}.section-heading h2{font:normal 32px/1.2 var(--serif);letter-spacing:-.035em;margin:0}.section-heading p{font-size:12px;color:var(--muted);margin:0}.project{border:1px solid var(--line);background:#eef0e5;display:grid;grid-template-columns:minmax(240px,.85fr) minmax(0,1.15fr);border-radius:4px;overflow:hidden}.project-art{overflow:hidden;padding:50px;display:flex;flex-direction:column;justify-content:space-between;gap:30px;min-height:330px;position:relative;background:linear-gradient(145deg,#e8eedc,#f0f2e9)}.project-art:after{content:'';position:absolute;width:230px;height:230px;right:-45px;bottom:-95px;border:1px solid #c7d3b9;transform:rotate(32deg);border-radius:20px}.project-code{font:11px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em;color:var(--green)}.project-art h3{font:normal clamp(48px,4.5vw,66px)/1 var(--serif);letter-spacing:-.06em;margin:0;color:#31452e}.project-tags{display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:1}.project-tags span{border:1px solid #c8d0bd;border-radius:3px;padding:7px 10px;font-size:11px;color:#526246}.project-content{padding:46px 50px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:#fafaf4}.project-content h4{font:normal 29px/1.3 var(--serif);letter-spacing:-.025em;margin:0 0 17px;max-width:470px}.project-content p{font-size:15px;line-height:1.85;color:var(--muted);margin:0;max-width:480px}.project-link{display:inline-flex;align-items:center;gap:30px;color:var(--green);text-decoration:none;border-bottom:1px solid #97ac85;padding:10px 0;margin-top:22px;font-size:14px;font-weight:500}.project-resources{display:flex;gap:23px;margin-top:25px;font-size:12px;color:var(--muted)}.project-resources a:hover{color:var(--green)}
-    .about{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px;padding:68px 0 70px}.about h2{font:normal 30px/1.25 var(--serif);letter-spacing:-.03em;margin:0}.about p{font-size:16px;line-height:1.9;margin:0;color:var(--muted);max-width:670px}.resources{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.resource{display:flex;justify-content:space-between;align-items:center;gap:25px;padding:28px 32px 28px 0;text-decoration:none}.resource+ .resource{border-left:1px solid var(--line);padding-left:38px}.resource span:first-child{display:flex;flex-direction:column;gap:8px}.resource strong{font-size:16px;font-weight:500}.resource small{font-size:13px;color:var(--muted)}.resource:hover strong{color:var(--green)}.footer{padding:32px 0 40px;display:flex;justify-content:space-between;gap:25px;color:var(--muted);font-size:11px}.footer a{text-decoration:none}.footer a:hover{text-decoration:underline}
-    html[lang=zh] h1{font-size:clamp(42px,5vw,66px);line-height:1.3;letter-spacing:-.025em}html[lang=zh] .project-content h4{line-height:1.5;font-size:27px}
-    @media(max-width:900px){.shell{width:calc(100% - 56px)}.hero{gap:35px;padding:72px 0 78px;grid-template-columns:minmax(0,1fr) 220px}h1{font-size:55px}.hero-copy{font-size:16px}.project-art{padding:35px;min-height:320px}.project-content{padding:35px}.project-content h4{font-size:25px}.about{gap:40px}.navigation{gap:18px}}
-    @media(max-width:640px){.shell{width:calc(100% - 40px)}.header{min-height:88px;gap:14px}.brand{font-size:23px;gap:7px}.brand img{width:35px;height:35px}.navigation{gap:12px}.nav-about{display:none}.navigation>a{font-size:12px}.languages button{padding:5px 7px}.hero{grid-template-columns:1fr;padding:54px 0 55px;gap:30px}.hero-aside{display:none}h1{font-size:clamp(43px,10.2vw,62px);margin:22px 0}.hero-copy{font-size:16px;line-height:1.8}.primary-link{padding:14px 19px;margin-top:25px}.section-heading{display:block;padding-top:28px;margin-bottom:23px}.section-heading h2{font-size:28px}.section-heading p{margin-top:10px;line-height:1.6}.project{grid-template-columns:1fr}.project-art{min-height:225px;padding:30px;gap:28px}.project-art h3{font-size:58px}.project-content{padding:31px 29px 35px}.project-content h4{font-size:26px}.about{grid-template-columns:1fr;gap:20px;padding:45px 0}.about h2{font-size:28px}.about p{font-size:15px}.resources{grid-template-columns:1fr}.resource{padding:23px 0}.resource+ .resource{border-left:0;border-top:1px solid var(--line);padding-left:0}.footer{padding:27px 0 32px;flex-direction:column;gap:12px}.footer small{font-size:11px}}
-    @media(max-width:360px){.navigation>a{display:none}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Jasper-K · Private preview</title>
+<meta name="description" content="Jasper-K research · password-protected review">
+<link rel="stylesheet" href="./gate.css"><script src="./gate.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
-  <div class="shell">
-    <header class="header">
-      <a class="brand" href="/" aria-label="Ragentile home"><img src="./assets/logo.png" width="43" height="43" alt=""><span>Ragentile</span></a>
-      <nav class="navigation" aria-label="Main navigation">
-        <a href="#research" data-i18n="research">Research</a>
-        <a class="nav-about" href="#about" data-i18n="about">About</a>
-        <div class="languages" role="group" aria-label="Language">
-          <button type="button" data-language="en" aria-pressed="true">EN</button>
-          <button type="button" data-language="zh" aria-pressed="false">中文</button>
-        </div>
-      </nav>
-    </header>
-    <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div>
-          <div class="eyebrow" data-i18n="eyebrow">Reinforcement learning · Research & engineering</div>
-          <h1 id="hero-title"><span data-i18n="headline1">Intelligence that learns</span><span data-i18n="headline2">through experience.</span></h1>
-          <p class="hero-copy" data-i18n="intro">We develop models and tools that learn from execution feedback, bringing reinforcement learning to real engineering challenges.</p>
-          <a class="primary-link" href="#research"><span data-i18n="explore">Explore our research</span><span class="arrow" aria-hidden="true">↗</span></a>
-        </div>
-        <div class="hero-aside" aria-hidden="true">
-          <div class="hero-visual"><img src="./assets/logo.png" width="1280" height="1280" alt=""></div>
-          <div class="hero-caption" data-i18n="cycle">Generate · Execute · Learn · Improve</div>
-        </div>
-      </section>
-      <section id="research" aria-labelledby="research-heading">
-        <div class="section-heading"><h2 id="research-heading" data-i18n="latest">Latest research</h2><p data-i18n="researchNote">From model capabilities to measurable results.</p></div>
-        <article class="project" aria-labelledby="project-title">
-          <div class="project-art">
-            <div class="project-code" data-i18n="projectCategory">01 / GPU KERNEL OPTIMIZATION</div>
-            <h3 id="project-title">Jasper-K</h3>
-            <div class="project-tags"><span>27B</span><span>32B</span><span>35B · MoE</span></div>
-          </div>
-          <div class="project-content">
-            <h4 data-i18n="projectHeading">Learning to write faster GPU kernels.</h4>
-            <p data-i18n="projectDescription">Jasper-K is our family of models for GPU kernel optimization, post-trained with multi-turn reinforcement learning. The models generate code, learn from execution feedback, and refine their implementations toward better performance.</p>
-            <a class="project-link" data-blog-link href="/Jasper-K/"><span data-i18n="readBlog">Read the technical blog</span><span class="arrow" aria-hidden="true">↗</span></a>
-            <div class="project-resources"><a href="https://huggingface.co/ragentile" data-i18n="weights">Model weights</a><a href="https://github.com/Ragentile/Jasper-Harness" data-i18n="harness">Inference harness</a></div>
-          </div>
-        </article>
-      </section>
-      <section class="about" id="about" aria-labelledby="about-heading">
-        <h2 id="about-heading" data-i18n="aboutHeading">Research meets execution.</h2>
-        <p data-i18n="aboutDescription">At Ragentile, we study how reinforcement learning can help models solve demanding engineering tasks. GPU kernel optimization is our first public research milestone: a setting where correctness and performance can be measured directly, and each experiment informs the next.</p>
-      </section>
-      <div class="resources" aria-label="Open resources">
-        <a class="resource" href="https://huggingface.co/ragentile"><span><strong>Hugging Face</strong><small data-i18n="hfDescription">Explore our released model weights</small></span><span class="arrow" aria-hidden="true">↗</span></a>
-        <a class="resource" href="https://github.com/Ragentile"><span><strong>GitHub</strong><small data-i18n="ghDescription">Explore our code and tools</small></span><span class="arrow" aria-hidden="true">↗</span></a>
-      </div>
-    </main>
-    <footer class="footer"><span>© 2026 Ragentile Intelligence</span><a href="#main" data-i18n="backToTop">Back to top ↑</a></footer>
-  </div>
-  <script>
-    (() => {
-      const zh = {
-        backToTop:'返回顶部 ↑',skip:'跳至正文',research:'研究',about:'关于我们',eyebrow:'强化学习 · 研究与工程',
-        headline1:'从实践中学习，',headline2:'让智能持续进步。',
-        intro:'我们研发从执行反馈中学习的模型与工具，将强化学习应用于真实的工程挑战。',
-        explore:'探索我们的研究',cycle:'生成 · 执行 · 学习 · 改进',latest:'最新研究',
-        researchNote:'从模型能力，到可衡量的实际成果。',projectCategory:'01 / GPU 算子优化',
-        projectHeading:'让模型学会编写更快的 GPU 算子。',
-        projectDescription:'Jasper-K 是我们面向 GPU 算子优化的模型系列，通过多轮强化学习进行后训练。模型生成代码，从执行反馈中学习，并持续修订实现，探索更高性能。',
-        readBlog:'阅读技术博客',weights:'模型权重',harness:'推理框架',
-        aboutHeading:'让研究走进真实任务。',
-        aboutDescription:'Ragentile 研究如何用强化学习帮助模型解决高难度工程任务。GPU 算子优化是我们公开研究的第一个阶段性成果：在这一场景中，正确性与性能可以直接衡量，每次实验都为下一步探索提供反馈。',
-        hfDescription:'获取已发布的模型权重',ghDescription:'探索我们的代码与工具'
-      };
-      const nodes = [...document.querySelectorAll('[data-i18n]')];
-      const en = Object.fromEntries(nodes.map(n => [n.dataset.i18n,n.textContent]));
-      function apply(lang,updateURL) {
-        lang = lang === 'zh' ? 'zh' : 'en';
-        document.documentElement.lang = lang;
-        nodes.forEach(n => n.textContent = (lang === 'zh' ? zh : en)[n.dataset.i18n]);
-        document.querySelectorAll('[data-language]').forEach(b => b.setAttribute('aria-pressed',String(b.dataset.language === lang)));
-        document.querySelectorAll('[data-blog-link]').forEach(a => a.href = '/Jasper-K/' + (lang === 'zh' ? '?lang=zh' : ''));
-        document.querySelector('.languages').setAttribute('aria-label',lang === 'zh' ? '选择语言' : 'Choose language');
-        document.title = lang === 'zh' ? 'Ragentile 赛砥英科 — 从实践中学习' : 'Ragentile — Learning through experience';
-        if (updateURL) {
-          const u = new URL(location.href);
-          lang === 'zh' ? u.searchParams.set('lang','zh') : u.searchParams.delete('lang');
-          history.replaceState(null,'',u.pathname+u.search+u.hash);
-        }
-      }
-      document.querySelectorAll('[data-language]').forEach(b => b.addEventListener('click',() => apply(b.dataset.language,true)));
-      window.addEventListener('popstate',() => apply(new URLSearchParams(location.search).get('lang'),false));
-      apply(new URLSearchParams(location.search).get('lang'),false);
-    })();
-  </script>
-  <script data-goatcounter="https://ragentile.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<main class="gate">
+  <div class="gate-topbar"><div class="eyebrow"><span></span> RAGENTILE / RESEARCH</div><div class="language-switch" role="group" aria-label="Choose language"><button type="button" data-gate-lang="en" lang="en" aria-pressed="true">EN</button><button type="button" data-gate-lang="zh" lang="zh-CN" aria-pressed="false">中文</button></div></div>
+  <h1>Jasper-K</h1>
+  <p class="subtitle" data-gate-copy="subtitle">Learning to optimize GPU kernels.</p>
+  <div class="rule"></div>
+  <h2 data-gate-copy="heading">Private preview</h2>
+  <p class="hint" data-gate-copy="hint">Enter the password to read the full article.</p>
+  <form id="unlock-form">
+    <label for="password" data-gate-copy="password">Password</label>
+    <div class="password-wrap"><input id="password" name="password" type="password" autocomplete="current-password" required autofocus><button class="reveal" type="button" aria-label="Show password" aria-pressed="false">Show</button></div>
+    <button class="submit" type="submit"><span data-gate-copy="open">Read article</span><span aria-hidden="true">↗</span></button>
+    <p id="status" role="status" aria-live="polite"></p>
+  </form>
+  <p class="foot" data-gate-copy="foot">Read-only preview · No account or installation needed</p>
+  <noscript>Please enable JavaScript to open this password-protected article. 请启用 JavaScript 后输入密码。</noscript>
+</main>
 </body>
 </html>
